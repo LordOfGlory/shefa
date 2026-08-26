@@ -2,8 +2,8 @@
 <html lang="en" data-wa="256788668652">
 <head>
   <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>SIEM, SOC and SOAR in plain language | Shefa Venturez</title>
-  <meta name="description" content="What SIEM, SOC and SOAR actually are as operating ideas — collection, people, and playbooks — not a shopping list of logos." />
+  <title>The first hour of an incident | Shefa Venturez</title>
+  <meta name="description" content="A defensive first-hour checklist: confirm, contain, communicate, preserve evidence. No cinema, no unauthorized access." />
   <link rel="icon" href="../assets/img/favicon.png" type="image/png" />
   <link rel="stylesheet" href="../assets/css/styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -89,15 +89,16 @@
     </div>
   </div>
   <article class="container article-prose" style="padding:80px 0;max-width:720px">
-    <p class="eyebrow">Cybersecurity · 9 min</p>
-    <h1>SIEM, SOC and SOAR in plain language</h1>
-    <p class="muted" style="margin:16px 0 24px">Three ideas: collect events, staff a response, automate the boring steps. Tools are optional until the ideas work.</p>
-    <p>SIEM (security information and event management) is centralized collection and search. Logs from identity, endpoints, network and cloud land in one place so someone can ask 'what happened'. Without sources and retention, a SIEM is an empty warehouse.</p>
-    <p>SOC (security operations centre) is the operating model: who watches, during which hours, how they escalate, what they are allowed to shut down. A SOC can be three people with a rota. It is not a room in a film.</p>
-    <p>SOAR (orchestration, automation, response) is playbooks: when this alert fires, do these steps, ask this human, ticket that system. Automation without a playbook just moves noise faster.</p>
-    <p>Buy tools after you can describe those three sentences for your organization. Otherwise you will pay for dashboards nobody queries.</p>
-    <p>Shefa will consult on this design. We will not pretend a logo is a capability. If you need testing of whether detection actually fires, that is a scoped, authorized exercise — not a surprise scan.</p>
-    <p style="margin-top:28px"><a class="btn btn-primary" href="../service-siem.html">SIEM, SOC and SOAR</a>
+    <p class="eyebrow">Cybersecurity · 8 min</p>
+    <h1>The first hour of an incident</h1>
+    <p class="muted" style="margin:16px 0 24px">Most of the damage in an incident is done by panic and by destroying evidence.</p>
+    <p>Confirm before you declare. A noisy alert can be a failed update. A quiet compromise can look like a slow day. Use two sources if you can: identity logs and endpoint or network.</p>
+    <p>Contain without making the story worse. Isolating a host is often better than powering it off if memory evidence matters. Follow a written playbook, not a group chat.</p>
+    <p>Communicate on a channel you still trust. If email might be involved, do not use email as the war room. Name who talks to staff, customers and any regulator. One voice.</p>
+    <p>Preserve evidence: timestamps, images, who touched what. You cannot un-overwrite a log. If you need outside help, they will ask for this first.</p>
+    <p>Do not 'hack back'. Do not scan random internet addresses. Shefa incident support is defensive and for systems you are authorized to handle.</p>
+    <p>Write the first-hour sheet before you need it. Consultation can produce that sheet. The night of the incident is a bad time to invent process.</p>
+    <p style="margin-top:28px"><a class="btn btn-primary" href="../service-ir.html">Incident response</a>
     <a class="btn btn-ghost" href="../blog.html">All resources</a></p>
   </article>
 <footer class="site-footer">

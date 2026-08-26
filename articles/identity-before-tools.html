@@ -2,8 +2,8 @@
 <html lang="en" data-wa="256788668652">
 <head>
   <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>SIEM, SOC and SOAR in plain language | Shefa Venturez</title>
-  <meta name="description" content="What SIEM, SOC and SOAR actually are as operating ideas — collection, people, and playbooks — not a shopping list of logos." />
+  <title>Identity before more security tools | Shefa Venturez</title>
+  <meta name="description" content="Why accounts, MFA and least privilege usually beat a new dashboard. Practical identity hygiene for small teams." />
   <link rel="icon" href="../assets/img/favicon.png" type="image/png" />
   <link rel="stylesheet" href="../assets/css/styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -89,15 +89,16 @@
     </div>
   </div>
   <article class="container article-prose" style="padding:80px 0;max-width:720px">
-    <p class="eyebrow">Cybersecurity · 9 min</p>
-    <h1>SIEM, SOC and SOAR in plain language</h1>
-    <p class="muted" style="margin:16px 0 24px">Three ideas: collect events, staff a response, automate the boring steps. Tools are optional until the ideas work.</p>
-    <p>SIEM (security information and event management) is centralized collection and search. Logs from identity, endpoints, network and cloud land in one place so someone can ask 'what happened'. Without sources and retention, a SIEM is an empty warehouse.</p>
-    <p>SOC (security operations centre) is the operating model: who watches, during which hours, how they escalate, what they are allowed to shut down. A SOC can be three people with a rota. It is not a room in a film.</p>
-    <p>SOAR (orchestration, automation, response) is playbooks: when this alert fires, do these steps, ask this human, ticket that system. Automation without a playbook just moves noise faster.</p>
-    <p>Buy tools after you can describe those three sentences for your organization. Otherwise you will pay for dashboards nobody queries.</p>
-    <p>Shefa will consult on this design. We will not pretend a logo is a capability. If you need testing of whether detection actually fires, that is a scoped, authorized exercise — not a surprise scan.</p>
-    <p style="margin-top:28px"><a class="btn btn-primary" href="../service-siem.html">SIEM, SOC and SOAR</a>
+    <p class="eyebrow">Cybersecurity · 8 min</p>
+    <h1>Identity before more security tools</h1>
+    <p class="muted" style="margin:16px 0 24px">A surprising share of incidents start with a valid login.</p>
+    <p>Know who has access to email, cloud, banking and admin panels. Shared passwords are not a team-building exercise. They are an unowned key.</p>
+    <p>Multi-factor authentication on those accounts is usually worth more than a new scanner. Prefer app-based or hardware factors over SMS where you can.</p>
+    <p>Least privilege: the intern does not need production delete. The former contractor should not still have VPN. Offboarding is a security control.</p>
+    <p>Service accounts and API keys are identities too. They leak in tickets and chat. Rotate them. Do not put them in screenshots of 'quick setup'.</p>
+    <p>New tools on top of messy identity create more logs of the same problem. Fix the keys first. Then decide if you still need the dashboard.</p>
+    <p>We can review identity as part of consulting or an authorized assessment. We will not invent a threat score to sell you a box.</p>
+    <p style="margin-top:28px"><a class="btn btn-primary" href="../service-consult.html">Cybersecurity consulting</a>
     <a class="btn btn-ghost" href="../blog.html">All resources</a></p>
   </article>
 <footer class="site-footer">

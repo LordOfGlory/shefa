@@ -3,16 +3,153 @@
 <head>
   <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>APIs that age well | Shefa Venturez</title>
+  <meta name="description" content="Design APIs other systems can depend on: stable contracts, versioning, auth, and boring documentation." />
+  <link rel="icon" href="../assets/img/favicon.png" type="image/png" />
   <link rel="stylesheet" href="../assets/css/styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&family=Syne:wght@700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <header class="site-header"><div class="header-inner"><a class="logo" href="../index.html"><img src="../assets/img/logo.png" alt="Shefa Venturez" /></a><a href="../it-services.html">IT Services</a></div></header>
-  <article class="container" style="padding:80px 0;max-width:720px">
-    <p class="eyebrow">IT · 5 min</p>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="../index.html"><img src="../assets/img/logo.png" alt="Shefa Venturez"></a>
+      <nav class="nav" aria-label="Primary">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <div class="has-mega">
+          <a href="../it-services.html">Services</a>
+          <div class="mega mega-wide" role="menu">
+            <div>
+              <p class="mega-kicker">IT Services</p>
+              <a href="../it-services.html">IT overview</a>
+              <a href="../service-web.html">Web development</a>
+              <a href="../service-mobile.html">Mobile apps</a>
+              <a href="../service-software.html">Custom software</a>
+              <a href="../service-cloud.html">Cloud solutions</a>
+              <a href="../service-infra.html">IT infrastructure</a>
+              <a href="../service-database.html">Databases</a>
+              <a href="../service-api.html">APIs</a>
+              <a href="../service-support.html">IT support</a>
+            </div>
+            <div>
+              <p class="mega-kicker">Cybersecurity</p>
+              <a href="../cybersecurity.html">Security overview</a>
+              <a href="../service-pentest.html">Penetration testing</a>
+              <a href="../service-vuln.html">Vulnerability assessment</a>
+              <a href="../service-siem.html">SIEM, SOC & SOAR</a>
+              <a href="../service-edr.html">EDR / XDR</a>
+              <a href="../service-ir.html">Incident response</a>
+              <a href="../service-cloudsec.html">Cloud security</a>
+              <a href="../service-consult.html">Consulting</a>
+            </div>
+          </div>
+        </div>
+        <div class="has-mega">
+          <a href="../academy.html">Academy</a>
+          <div class="mega mega-wide mega-academy" role="menu">
+            <div>
+              <p class="mega-kicker">Three schools · one academy</p>
+              <a href="../academy-it.html">IT Academy <em>$349</em></a>
+              <a href="../academy-cyber.html">Cyber Academy <em>$429</em></a>
+              <a href="../academy-forex.html">Forex Academy <em>$299</em></a>
+              <a href="../enroll.html">Request a place</a>
+            </div>
+            <div>
+              <p class="mega-kicker">Start free</p>
+              <a href="../academy-forex.html#free">Forex free path</a>
+              <a href="https://www.babypips.com/learn/forex" target="_blank" rel="noopener noreferrer">School of Pipsology</a>
+              <a href="../assets/docs/shefa-forex-free-path.pdf" download>Download free starter PDF</a>
+            </div>
+          </div>
+        </div>
+        <a href="../blog.html">Resources</a>
+        <a href="../contact.html">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-ghost" href="../academy.html">Explore courses</a>
+        <a class="btn btn-primary" href="../consultation.html">Get started</a>
+        <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+  <div class="mobile-nav">
+    <a href="../index.html">Home</a>
+    <a href="../about.html">About</a>
+    <a href="../it-services.html">IT Services</a>
+    <a href="../cybersecurity.html">Cybersecurity</a>
+    <a href="../academy.html">Academy</a>
+    <a href="../academy-it.html">IT Academy · $349</a>
+    <a href="../academy-cyber.html">Cyber Academy · $429</a>
+    <a href="../academy-forex.html">Forex Academy · $299</a>
+    <a href="../blog.html">Resources</a>
+    <a href="../consultation.html">Consultation</a>
+    <a href="../contact.html">Contact</a>
+    <div class="actions">
+      <a class="btn btn-primary" href="../consultation.html">Get started</a>
+      <a class="btn btn-ghost" href="../academy.html">Explore courses</a>
+    </div>
+  </div>
+  <article class="container article-prose" style="padding:80px 0;max-width:720px">
+    <p class="eyebrow">IT · 8 min</p>
     <h1>APIs that age well</h1>
-    <p style="margin-top:16px">Stable contracts, explicit authentication, predictable errors and documentation written for the next engineer — not only the author.</p>
-    <p style="margin-top:14px">Version deliberately. Avoid surprise breaking changes. Treat integration as a product surface.</p>
+    <p class="muted" style="margin:16px 0 24px">An API is a promise to other software. Treat it like a contract, not a convenience.</p>
+    <p>Name the consumers. Internal app, partner, mobile client, batch job — each fails differently. An endpoint that is fine for one screen can melt a nightly import.</p>
+    <p>Stability beats cleverness. Keep URLs, field names and error shapes dull. If you must change, add a version or a new field. Removing a field that someone already stored is a break, even if you 'didn't mean it'.</p>
+    <p>Authentication belongs in the design, not as a header you remember later. Who is the caller. What can they read. What can they write. How do you revoke them. Write that before the first public URL.</p>
+    <p>Idempotency for anything that creates money, tickets or accounts. Timeouts and retries will double a payment if you let them. Clients will retry. Plan for it.</p>
+    <p>Document with examples of real requests and real errors. A list of endpoints without payloads is a menu without prices. Keep the document next to the code so it can rot in public view.</p>
+    <p>When Shefa builds APIs, scope includes consumers, auth, versioning and the first three error cases. That is the work. The framework is secondary.</p>
+    <p style="margin-top:28px"><a class="btn btn-primary" href="../service-api.html">API services</a>
+    <a class="btn btn-ghost" href="../blog.html">All resources</a></p>
   </article>
+<footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="logo" href="../index.html">Shefa Venturez</a>
+        <p style="margin-top:10px">We build technology, secure it with written authorization, and train people one academy at a time.</p>
+        <p style="margin-top:10px"><a href="mailto:shefaventurez@outlook.com">shefaventurez@outlook.com</a></p>
+        <p style="margin-top:6px">WhatsApp 0788668652</p>
+      </div>
+      <div>
+        <h4>IT Services</h4>
+        <a href="../it-services.html">Overview</a>
+        <a href="../service-web.html">Web development</a>
+        <a href="../service-software.html">Custom software</a>
+        <a href="../service-cloud.html">Cloud</a>
+        <a href="../consultation.html">Talk to an IT expert</a>
+      </div>
+      <div>
+        <h4>Cybersecurity</h4>
+        <a href="../cybersecurity.html">Overview</a>
+        <a href="../service-pentest.html">Penetration testing</a>
+        <a href="../service-siem.html">SIEM, SOC & SOAR</a>
+        <a href="../service-ir.html">Incident response</a>
+        <a href="../consultation.html">Request an assessment</a>
+      </div>
+      <div>
+        <h4>Academy</h4>
+        <a href="../academy.html">All courses</a>
+        <a href="../academy-it.html">IT Academy</a>
+        <a href="../academy-cyber.html">Cyber Academy</a>
+        <a href="../academy-forex.html">Forex Academy</a>
+        <a href="../enroll.html">Request a place</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="../about.html">About</a>
+        <a href="../blog.html">Resources</a>
+        <a href="../contact.html">Contact</a>
+        <a href="../privacy.html">Privacy Policy</a>
+        <a href="../terms.html">Terms of Service</a>
+        <a href="../disclaimer.html">Disclaimer</a>
+        <a href="../cookies.html">Cookie Policy</a>
+      </div>
+    </div>
+    <div class="container legal-row">
+      <p>© 2026 Shefa Venturez. All rights reserved.</p>
+      <p>Security testing is authorized and defensive only. Forex education does not guarantee profit and can result in loss of capital.</p>
+    </div>
+  </footer>
+  <script src="../assets/js/main.js"></script>
+
 </body>
 </html>
