@@ -1,0 +1,4 @@
+Contact: mailto:shefaventurez@outlook.com
+Expires: 2027-09-07T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://www.shefaventurez.com/.well-known/security.txt

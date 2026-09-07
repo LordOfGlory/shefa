@@ -36,24 +36,51 @@
     });
   });
 
-  const waNumber = document.documentElement.dataset.wa || "256763533786";
-  const waText = encodeURIComponent(
-    "Hello Shefa Venturez, I would like to learn more about your services."
-  );
-  const waHref = waNumber
-    ? `https://wa.me/${waNumber}?text=${waText}`
-    : `#contact`;
+  const waNumber = (document.documentElement.dataset.wa || "256763533786").replace(/[^\d]/g, "").slice(0, 15);
+  const waMenu = [
+    ["IT services", "Hello Shefa Venturez — I need help with IT (web, software, cloud or support). Please reply with the next step."],
+    ["Cybersecurity", "Hello Shefa Venturez — I would like to discuss authorized cybersecurity work. Please reply with the next step."],
+    ["Academy", "Hello Shefa Venturez — I want to know about the academy (IT, Cyber, or Forex). Please reply with the next step."],
+    ["General question", "Hello Shefa Venturez — I have a question. Please reply with the next step."],
+  ];
+  function waLink(text) {
+    return "https://wa.me/" + waNumber + "?text=" + encodeURIComponent(text);
+  }
+  const defaultWa = waLink(waMenu[3][1]);
   document.querySelectorAll("[data-whatsapp]").forEach((el) => {
-    el.setAttribute("href", waHref);
-    if (!waNumber) el.setAttribute("title", "Replace [WHATSAPP NUMBER] to enable WhatsApp");
+    const custom = el.getAttribute("data-wa-msg");
+    el.setAttribute("href", custom ? waLink(custom) : defaultWa);
   });
   if (!document.querySelector(".float-wa")) {
-    const a = document.createElement("a");
+    const wrap = document.createElement("div");
+    wrap.className = "wa-dock";
+    const sheet = document.createElement("div");
+    sheet.className = "wa-sheet";
+    sheet.hidden = true;
+    sheet.setAttribute("role", "dialog");
+    sheet.setAttribute("aria-label", "Message Shefa on WhatsApp");
+    sheet.innerHTML =
+      "<p class=\"wa-sheet-title\">WhatsApp +256 763 533 786</p>" +
+      "<p class=\"wa-sheet-copy\">Choose a topic. The first message is already written for you.</p>" +
+      waMenu
+        .map(function (row) {
+          return "<a class=\"wa-sheet-link\" href=\"" + waLink(row[1]) + "\">" + row[0] + "</a>";
+        })
+        .join("");
+    const a = document.createElement("button");
+    a.type = "button";
     a.className = "float-wa";
-    a.href = waHref;
     a.setAttribute("aria-label", "Chat on WhatsApp +256 763 533 786");
+    a.setAttribute("aria-expanded", "false");
     a.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.8-.9-.2-.1-.4-.1-.6.1s-.7.9-.8 1c-.2.1-.3.2-.6.1a7.3 7.3 0 0 1-2.2-1.4 8 8 0 0 1-1.5-1.9c-.2-.3 0-.4.1-.6l.4-.4.1-.3c0-.1 0-.3-.1-.4s-.6-1.4-.8-1.9-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3s-.8.8-.8 1.9.8 2.2.9 2.4c.1.2 1.6 2.4 3.8 3.4 1.4.6 1.9.7 2.6.6.4 0 1.3-.2 1.5-.5s.6-.6.7-.8.1-.4 0-.5-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>';
-    document.body.appendChild(a);
+    a.addEventListener("click", function () {
+      const open = sheet.hidden;
+      sheet.hidden = !open;
+      a.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    wrap.appendChild(sheet);
+    wrap.appendChild(a);
+    document.body.appendChild(wrap);
   }
 
   const canvas = document.getElementById("net-canvas");
@@ -137,6 +164,7 @@
   function sanitize(value) {
     return String(value || "")
       .replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, "")
+      .replace(/[\r\n]+/g, " ")
       .replace(/[<>]/g, "")
       .replace(/javascript:/gi, "")
       .replace(/on\w+\s*=/gi, "")
