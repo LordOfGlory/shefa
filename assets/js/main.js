@@ -36,7 +36,7 @@
     });
   });
 
-  const waNumber = document.documentElement.dataset.wa || "256788668652";
+  const waNumber = document.documentElement.dataset.wa || "256763533786";
   const waText = encodeURIComponent(
     "Hello Shefa Venturez, I would like to learn more about your services."
   );
@@ -47,6 +47,14 @@
     el.setAttribute("href", waHref);
     if (!waNumber) el.setAttribute("title", "Replace [WHATSAPP NUMBER] to enable WhatsApp");
   });
+  if (!document.querySelector(".float-wa")) {
+    const a = document.createElement("a");
+    a.className = "float-wa";
+    a.href = waHref;
+    a.setAttribute("aria-label", "Chat on WhatsApp +256 763 533 786");
+    a.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.8-.9-.2-.1-.4-.1-.6.1s-.7.9-.8 1c-.2.1-.3.2-.6.1a7.3 7.3 0 0 1-2.2-1.4 8 8 0 0 1-1.5-1.9c-.2-.3 0-.4.1-.6l.4-.4.1-.3c0-.1 0-.3-.1-.4s-.6-1.4-.8-1.9-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3s-.8.8-.8 1.9.8 2.2.9 2.4c.1.2 1.6 2.4 3.8 3.4 1.4.6 1.9.7 2.6.6.4 0 1.3-.2 1.5-.5s.6-.6.7-.8.1-.4 0-.5-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>';
+    document.body.appendChild(a);
+  }
 
   const canvas = document.getElementById("net-canvas");
   if (canvas) {
@@ -168,7 +176,7 @@
     const raw = el.value || "";
     const val = sanitize(raw);
     if (val !== raw) el.value = val;
-    if (looksLikeInjection(raw)) {
+    if (looksLikeInjection(raw) && el.tagName !== "TEXTAREA") {
       setError(el, "This field contains characters that are not allowed.");
       return false;
     }
@@ -181,7 +189,7 @@
       setError(el, "Enter a valid email address.");
       return false;
     }
-    if ((el.name === "phone" || el.name === "whatsapp") && !isPhone(val)) {
+    if ((el.name === "phone" || el.name === "whatsapp") && val && !isPhone(val)) {
       setError(el, "Enter a valid phone number.");
       return false;
     }
@@ -211,9 +219,9 @@
 
   const enroll = document.getElementById("enroll-form");
   const FEES = {
-    "IT Academy": "UGX 1,200,000 · 12 weeks · 3 × UGX 400,000",
-    "Cybersecurity Academy": "UGX 1,500,000 · 12 weeks · 3 × UGX 500,000",
-    "Forex Academy": "UGX 1,000,000 · 8 weeks · 2 × UGX 400,000"
+    "IT Academy": "$349 · 12 weeks · ≈ UGX 1,300,000",
+    "Cybersecurity Academy": "$429 · 12 weeks · ≈ UGX 1,600,000",
+    "Forex Academy": "$299 · 8 weeks · ≈ UGX 1,100,000"
   };
   if (enroll) {
     const q = new URLSearchParams(location.search).get("program");
@@ -245,7 +253,7 @@
         }
         const prog = (enroll.querySelector("input[name=program]:checked") || {}).value;
         const feeEl = document.getElementById("fee-review");
-        if (feeEl && step >= 3) feeEl.textContent = prog ? ("Tuition: " + (FEES[prog] || "") + ". Pay only after confirmation on WhatsApp 0788668652.") : "";
+        if (feeEl && step >= 3) feeEl.textContent = prog ? ("Tuition: " + (FEES[prog] || "") + ". Pay only after confirmation on WhatsApp +256 763 533 786.") : "";
         show(Math.min(4, step + 1));
       })
     );
@@ -271,33 +279,44 @@
 
   async function sendToOutlook(form) {
     const btn = form.querySelector('[type="submit"]');
+    const original = btn ? btn.textContent : "";
     if (btn) { btn.disabled = true; btn.textContent = "Sending…"; }
     const payload = {};
     new FormData(form).forEach((v, k) => {
       if (k === "website_hp" || k === "_honey") return;
       payload[k] = sanitize(v);
     });
-    payload._subject = payload._subject || "Shefa Venturez website form";
+    payload._subject = payload._subject || "Shefa Venturez website";
     payload._template = "table";
     payload._captcha = "false";
+    if (payload.email) payload._replyto = payload.email;
     try {
       const res = await fetch("https://formsubmit.co/ajax/shefaventurez@outlook.com", {
         method: "POST",
-        headers: { "Content-Type": "application/json", "Accept": "application/json" },
-        body: JSON.stringify(payload)
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(payload),
       });
       const json = await res.json().catch(() => ({}));
-      if (!res.ok || json.success === "false" || json.success === false) {
-        alert("The message could not be sent yet. Open Outlook for shefaventurez@outlook.com and confirm the first FormSubmit email, then try again. You can also use WhatsApp 0788668652.");
-        if (btn) { btn.disabled = false; btn.textContent = "Send"; }
-        return false;
+      if (res.ok && json.success !== "false" && json.success !== false) {
+        if (btn) { btn.disabled = false; btn.textContent = original; }
+        return true;
       }
-      return true;
     } catch (err) {
-      alert("Network error. Please message WhatsApp 0788668652 or email shefaventurez@outlook.com directly.");
-      if (btn) { btn.disabled = false; btn.textContent = "Send"; }
-      return false;
+      /* fall through to mail */
     }
+    const lines = Object.entries(payload)
+      .filter(([k, v]) => !k.startsWith("_") && String(v || "").trim())
+      .map(([k, v]) => k + ": " + v)
+      .join("\n")
+      .slice(0, 1800);
+    const mail =
+      "mailto:shefaventurez@outlook.com?subject=" +
+      encodeURIComponent(payload._subject) +
+      "&body=" +
+      encodeURIComponent(lines);
+    window.location.href = mail;
+    if (btn) { btn.disabled = false; btn.textContent = original; }
+    return true;
   }
 
   document.querySelectorAll("form[data-local], form.subscribe").forEach((form) => {
@@ -329,11 +348,14 @@ document.addEventListener('scroll', () => {
   const h = document.querySelector('.site-header');
   if (h) h.classList.toggle('scrolled', window.scrollY > 24);
 }, {passive:true});
-if (location.pathname && !location.pathname.endsWith('index.html') && location.pathname.split('/').pop() !== '' && location.pathname.split('/').pop() !== 'index.html') {
-  document.body.classList.add('inner');
-  const h = document.querySelector('.site-header');
-  if (h) h.classList.add('light','scrolled');
-}
+(function () {
+  const path = (location.pathname || "/").replace(/index\.html$/i, "").replace(/\/+$/, "") || "/";
+  if (path !== "/") {
+    document.body.classList.add("inner");
+    const h = document.querySelector(".site-header");
+    if (h) h.classList.add("scrolled");
+  }
+})();
 
 setInterval(() => {
   document.querySelectorAll('a[href*="tiiny"], [id*="tiiny"], [class*="tiiny"]').forEach((n) => n.remove());

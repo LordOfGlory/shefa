@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://shefaventurez.com/sitemap.xml
+Sitemap: https://www.shefaventurez.com/sitemap.xml
