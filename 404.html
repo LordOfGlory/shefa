@@ -2,6 +2,16 @@
 <html lang="en" data-wa="256763533786">
 <head>
   <meta charset="UTF-8" />
+<script>
+(function () {
+  var path = location.pathname || '';
+  if (!/\.html$/i.test(path)) return;
+  var map = {"service-mobile":"/service-mobile/","academy-it":"/academy-it/","enroll":"/enroll/","service-cloud":"/service-cloud/","education":"/education/","disclaimer":"/disclaimer/","terms":"/terms/","service-support":"/service-support/","blog":"/blog/","cookies":"/cookies/","service-api":"/service-api/","it-services":"/it-services/","service-cloudsec":"/service-cloudsec/","academy-forex":"/academy-forex/","service-web":"/service-web/","thanks":"/thanks/","cybersecurity":"/cybersecurity/","consultation":"/consultation/","contact":"/contact/","service-consult":"/service-consult/","academy-cyber":"/academy-cyber/","service-software":"/service-software/","about":"/about/","service-pentest":"/service-pentest/","service-edr":"/service-edr/","service-database":"/service-database/","academy":"/academy/","service-ir":"/service-ir/","insights":"/insights/","service-siem":"/service-siem/","service-vuln":"/service-vuln/","privacy":"/privacy/","download":"/download/","incident-first-hour":"/articles/incident-first-hour/","choosing-a-web-stack":"/articles/choosing-a-web-stack/","build-vs-buy":"/articles/build-vs-buy/","scoping-an-it-project":"/articles/scoping-an-it-project/","apis-that-age-well":"/articles/apis-that-age-well/","forex-risk-first":"/articles/forex-risk-first/","siem-soc-soar":"/articles/siem-soc-soar/","weekly-review":"/articles/weekly-review/","authorized-pentest-scope":"/articles/authorized-pentest-scope/","one-program-focus":"/articles/one-program-focus/","identity-before-tools":"/articles/identity-before-tools/","position-size":"/articles/position-size/","written-plan-contents":"/articles/written-plan-contents/","service-infra":"/service-infra/","index":"/"};
+  var name = path.split('/').pop().replace(/\.html$/i, '');
+  var dest = map[name] || path.replace(/\.html$/i, '/') || '/';
+  location.replace(dest + location.search + location.hash);
+})();
+</script>
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://formsubmit.co; form-action 'self' https://formsubmit.co mailto:; base-uri 'self'; object-src 'none'; upgrade-insecure-requests" />
 
