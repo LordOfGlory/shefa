@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /insights/
+Disallow: /download/thanks/
 
 Sitemap: https://www.shefaventurez.com/sitemap.xml

@@ -277,6 +277,51 @@
     });
   }
 
+  const pdfForm = document.getElementById("pdf-form");
+  if (pdfForm) {
+    pdfForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (!validateForm(pdfForm, ["name", "email"])) return;
+      const btn = pdfForm.querySelector('[type="submit"]');
+      const original = btn ? btn.textContent : "";
+      if (btn) {
+        btn.disabled = true;
+        btn.textContent = "Preparing…";
+      }
+      const payload = {};
+      new FormData(pdfForm).forEach((v, k) => {
+        if (k === "website_hp" || k === "_honey" || k === "company_site") return;
+        payload[k] = sanitize(v);
+      });
+      payload._subject = "Shefa PDF download";
+      payload._template = "table";
+      payload._captcha = "false";
+      if (payload.email) payload._replyto = payload.email;
+      const finish = () => {
+        pdfForm.hidden = true;
+        const done = pdfForm.parentElement.querySelector(".form-done");
+        if (done) done.hidden = false;
+        const a = document.createElement("a");
+        a.href = "/assets/docs/shefa-forex-free-path.pdf";
+        a.download = "shefa-forex-free-path.pdf";
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        if (btn) {
+          btn.disabled = false;
+          btn.textContent = original;
+        }
+      };
+      fetch("https://formsubmit.co/ajax/shefaventurez@outlook.com", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(payload),
+      })
+        .catch(() => {})
+        .finally(finish);
+    });
+  }
+
   async function sendToOutlook(form) {
     const btn = form.querySelector('[type="submit"]');
     const original = btn ? btn.textContent : "";
