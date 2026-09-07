@@ -1,5 +1,9 @@
 /* Shefa Venturez interactions */
 (function () {
+  if (location.hostname === "shefaventurez.com") {
+    location.replace("https://www.shefaventurez.com" + location.pathname + location.search + location.hash);
+    return;
+  }
   const header = document.querySelector(".site-header");
   const toggle = document.querySelector(".menu-toggle");
   const mobile = document.querySelector(".mobile-nav");
