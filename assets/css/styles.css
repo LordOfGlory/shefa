@@ -603,4 +603,146 @@ label { font-weight: 500; color: #5c5e62; }
   .toc-list, .step-grid { grid-template-columns: 1fr; }
 }
 
+/* Field record — events */
+.home-record {
+  display: grid;
+  grid-template-columns: 1.45fr 1fr 1fr;
+  grid-template-rows: 260px 260px;
+  gap: 8px;
+}
+.home-shot {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  background: #111;
+  min-height: 0;
+}
+.home-shot.wide { grid-column: 1; grid-row: 1 / span 2; }
+.home-shot:nth-child(4) { grid-column: 2 / span 2; }
+.home-shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+  transform: scale(1.01);
+  transition: transform .6s ease;
+}
+.home-shot.wide img { object-position: center 18%; }
+.home-shot:hover img { transform: scale(1.045); }
+.home-shot span {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 36px 16px 14px;
+  background: linear-gradient(180deg, transparent, rgba(8,10,14,.78));
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.home-shot em {
+  font-style: normal;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #d5def8;
+}
+.home-shot strong { font-weight: 600; font-size: 16px; letter-spacing: -0.02em; }
 
+.record-filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 4px 0 28px; }
+.record-filters button {
+  height: 36px;
+  padding: 0 14px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.record-filters button.on { background: var(--ink); color: #fff; border-color: var(--ink); }
+.record-chapter { margin-top: 18px; }
+.record-chapter + .record-chapter { margin-top: 54px; }
+.record-head { max-width: 640px; margin-bottom: 18px; }
+.record-head h2 { margin: 6px 0 8px; }
+.record-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 18px 14px;
+}
+.shot { margin: 0; min-width: 0; }
+.shot.s6 { grid-column: span 6; }
+.shot.s5 { grid-column: span 5; }
+.shot.s7 { grid-column: span 7; }
+.shot.s4 { grid-column: span 4; }
+.shot.s8 { grid-column: span 8; }
+.shot.s12 { grid-column: span 12; }
+.shot a.frame {
+  display: block;
+  background: #0e1116;
+  overflow: hidden;
+  cursor: zoom-in;
+}
+.shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 16 / 10;
+  display: block;
+  transition: transform .55s ease;
+}
+.shot.portrait img { aspect-ratio: 3 / 4; object-position: center 18%; }
+.shot.tall img { aspect-ratio: 4 / 5; object-position: center 15%; }
+.shot a.frame:hover img { transform: scale(1.03); }
+.shot figcaption { padding-top: 10px; }
+.shot .k {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+.shot h3 { margin-top: 4px; font-size: 18px; }
+.shot figcaption p { color: var(--muted); font-size: 14px; margin-top: 4px; }
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  background: rgba(8,10,14,.92);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 64px;
+}
+.lightbox.open { display: flex; }
+.lightbox img { max-width: min(1280px, 100%); max-height: calc(100vh - 120px); object-fit: contain; }
+.lightbox figcaption {
+  position: absolute;
+  left: 24px; right: 24px; bottom: 18px;
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+}
+.lightbox .lb-x, .lightbox .lb-nav {
+  position: absolute;
+  color: #fff;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.12);
+  font-size: 22px;
+}
+.lightbox .lb-x { top: 16px; right: 16px; }
+.lightbox .lb-nav.prev { left: 12px; top: 50%; transform: translateY(-50%); }
+.lightbox .lb-nav.next { right: 12px; top: 50%; transform: translateY(-50%); }
+
+@media (max-width: 860px) {
+  .home-record { grid-template-columns: 1fr; grid-template-rows: none; }
+  .home-shot, .home-shot.wide { grid-column: auto; grid-row: auto; height: 240px; }
+  .shot.s6, .shot.s5, .shot.s7, .shot.s4, .shot.s8, .shot.s12 { grid-column: span 12; }
+  .lightbox { padding: 64px 12px 72px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-shot img, .shot img { transition: none; }
+}
