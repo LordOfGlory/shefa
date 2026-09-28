@@ -705,3 +705,48 @@ label { font-weight: 500; color: #5c5e62; }
 @media (prefers-reduced-motion: reduce) {
   .home-shot img, .shot img { transition: none; }
 }
+
+.crumb { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
+.crumb a { color: var(--muted); }
+.crumb span { margin: 0 6px; }
+.event-feature {
+  display: grid;
+  grid-template-columns: 1.35fr 0.9fr;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 42px;
+  color: inherit;
+  text-decoration: none;
+}
+.event-feature img { width: 100%; height: 100%; min-height: 380px; object-fit: cover; display: block; }
+.event-feature .copy { padding: 36px 32px; display: flex; flex-direction: column; justify-content: center; }
+.event-feature .k, .album .k { font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--blue); }
+.event-feature .date, .event-card .date { font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--blue); margin: 8px 0; }
+.event-feature h2 { margin: 4px 0 10px; }
+.event-feature p { color: var(--muted); }
+.event-feature .btn { margin-top: 18px; align-self: flex-start; }
+.event-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.event-card {
+  display: flex; flex-direction: column; background: #fff; border: 1px solid var(--line);
+  border-radius: 14px; overflow: hidden; color: inherit; text-decoration: none; height: 100%;
+}
+.event-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
+.event-card .copy { padding: 16px 16px 18px; }
+.event-card h3 { margin: 4px 0 6px; font-size: 18px; }
+.event-card p { color: var(--muted); font-size: 14px; margin: 0; }
+.album-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; align-items: start; }
+.album { margin: 0; }
+.album a.frame { display: block; border-radius: 14px; overflow: hidden; background: #111; }
+.album img { width: 100%; aspect-ratio: 16/10; object-fit: cover; display: block; transition: transform .45s ease; }
+.album a.frame:hover img { transform: scale(1.03); }
+.album figcaption { padding-top: 12px; }
+.album h3 { font-size: 18px; margin: 4px 0; }
+.album figcaption p { color: var(--muted); font-size: 14px; margin: 0; }
+@media (max-width: 900px) {
+  .event-feature { grid-template-columns: 1fr; }
+  .event-feature img { min-height: 0; height: 220px; }
+  .event-feature .copy { padding: 22px 18px 24px; }
+  .event-row, .album-grid { grid-template-columns: 1fr; }
+}

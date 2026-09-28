@@ -6,22 +6,25 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://formsubmit.co; form-action 'self' https://formsubmit.co mailto:; base-uri 'self'; object-src 'none'; upgrade-insecure-requests" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Database Solutions | Shefa Venturez</title>
-  <meta name="description" content="Data models, performance and reliability for records you cannot lose." />
-  <link rel="icon" href="/assets/img/favicon.png" type="image/png" />
-  <link rel="stylesheet" href="/assets/css/styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="canonical" href="https://www.shefaventurez.com/service-database/" />
-  <meta property="og:title" content="Database Solutions | Shefa Venturez" />
-  <meta property="og:description" content="Data models, performance and reliability for records you cannot lose." />
+  <title>Photo gallery | Shefa Venturez</title>
+  <meta name="description" content="Photographs from Shefa Venturez: the lab, a class outside, and Kampala International University." />
+  <link rel="canonical" href="https://www.shefaventurez.com/gallery/" />
+  <meta property="og:title" content="Events | Shefa Venturez" />
+  <meta property="og:description" content="Next intake 1 October 2026. One school at a time." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.shefaventurez.com/service-database/" />
-  <meta property="og:image" content="https://www.shefaventurez.com/assets/img/code.jpg" />
+  <meta property="og:url" content="https://www.shefaventurez.com/gallery/" />
+  <meta name="theme-color" content="#171a20" />
+  <link rel="icon" href="/assets/img/favicon.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+  <meta property="og:image" content="https://www.shefaventurez.com/assets/img/events/lab-table.jpg" />
   <meta property="og:image:alt" content="Shefa Venturez" />
   <meta property="og:site_name" content="Shefa Venturez" />
   <meta property="og:locale" content="en_UG" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="https://www.shefaventurez.com/assets/img/code.jpg" />
+  <meta name="twitter:image" content="https://www.shefaventurez.com/assets/img/events/lab-table.jpg" />
   <meta name="twitter:site" content="@ShefaVenturez" />
 </head>
 <body>
@@ -32,7 +35,7 @@
         <a href="/">Home</a>
         <a href="/about/">About</a>
         <div class="has-mega">
-          <a href="/events/">Events</a>
+          <a class="active" href="/events/">Events</a>
           <div class="mega" role="menu">
             <a href="/events/">Upcoming classes</a>
             <a href="/gallery/">Photo gallery</a>
@@ -118,16 +121,55 @@
     </div>
   </div>
 
-  <section class="page-hero-photo" style="background-image:url(/assets/img/code.jpg)">
+  
+
+  <section class="page-hero">
     <div class="container">
-      <p class="eyebrow">Build</p>
-      <h1>Database Solutions</h1>
-      <p class="muted" style="max-width:640px;font-size:18px">Structure, access and backup for critical information.</p>
+      <p class="crumb"><a href="/">Home</a> <span>/</span> Photo gallery</p>
+      <h1>Photo gallery</h1>
+      <p class="muted">The lab, a class outside, and a campus visit.</p>
     </div>
   </section>
-  <article class="container" style="padding:64px 0;max-width:800px">
-    <p>We design or repair how data is stored, queried and protected so reports and applications stay trustworthy.</p><p style='margin-top:28px'><a class='btn btn-primary' href='/consultation/'>Request a consultation</a></p>
-  </article>
+
+  <section>
+    <div class="container">
+      <div class="album-grid" data-record>
+        <figure class="album" data-group="work">
+          <a class="frame" href="/assets/img/events/lab-table.jpg"><img src="/assets/img/events/lab-table.jpg" alt="Training around a table, with code on the wall screen"></a>
+          <figcaption>
+            <p class="k">The lab</p>
+            <h3>Hands on the machines</h3>
+            <p>A session already held. Code on the wall, a question in the room.</p>
+          </figcaption>
+        </figure>
+        <figure class="album" data-group="work">
+          <a class="frame" href="/assets/img/events/lawn.jpg"><img src="/assets/img/events/lawn.jpg" alt="An outdoor class on a lawn with hands raised"></a>
+          <figcaption>
+            <p class="k">The class</p>
+            <h3>On the grass</h3>
+            <p>Chairs outside. Hands up. No projector.</p>
+          </figcaption>
+        </figure>
+        <figure class="album" data-group="work">
+          <a class="frame" href="/assets/img/events/kiu.jpg"><img src="/assets/img/events/kiu.jpg" alt="A group in front of a Kampala International University coach"></a>
+          <figcaption>
+            <p class="k">Campus</p>
+            <h3>Kampala International University</h3>
+            <p>An evening beside the coach. The name is on the lettering.</p>
+          </figcaption>
+        </figure>
+      </div>
+      <p style="margin-top:28px"><a href="/events/">Upcoming classes →</a></p>
+    </div>
+  </section>
+
+  <div class="lightbox" role="dialog" aria-modal="true" aria-label="Photograph">
+    <button class="lb-x" type="button" aria-label="Close">×</button>
+    <button class="lb-nav prev" type="button" aria-label="Previous">‹</button>
+    <img alt="">
+    <button class="lb-nav next" type="button" aria-label="Next">›</button>
+    <figcaption></figcaption>
+  </div>
 
   <footer class="site-footer">
     <div class="container footer-grid">
@@ -187,6 +229,8 @@
       <p>Security testing is authorized and defensive only. Forex education does not guarantee profit and can result in loss of capital.</p>
     </div>
   </footer>
+  <script src="/assets/js/gallery.js"></script>
   <script src="/assets/js/main.js"></script>
 
-</body></html>
+</body>
+</html>
