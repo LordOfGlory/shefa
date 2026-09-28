@@ -743,6 +743,28 @@ label { font-weight: 500; color: #5c5e62; }
 .album figcaption { padding-top: 12px; }
 .album h3 { font-size: 18px; margin: 4px 0; }
 .photo-credit { margin-top: 22px; font-size: 13px; color: var(--muted); }
+.reg-steps, .reg-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.reg-steps { list-style: none; padding: 0; margin: 0 0 18px; }
+.reg-steps li, .reg-card {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 20px;
+  background: #fff;
+}
+.reg-steps span {
+  display: inline-flex; width: 28px; height: 28px; align-items: center; justify-content: center;
+  border-radius: 50%; background: var(--ink); color: #fff; font-size: 13px; font-weight: 600; margin-bottom: 12px;
+}
+.reg-steps h3, .reg-card h3 { font-size: 16px; margin: 0 0 6px; }
+.reg-steps p, .reg-card p { margin: 0; color: var(--muted); font-size: 14px; }
+.reg-card { display: flex; flex-direction: column; background: var(--fog); }
+.reg-card .k { font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--blue); }
+.reg-card .fee { font-size: 32px; font-weight: 600; letter-spacing: -0.03em; color: var(--ink); margin: 8px 0 4px; }
+.reg-card .btn { margin-top: 16px; text-align: center; }
+.reg-card .alt-link { margin-top: 10px; font-size: 14px; }
+@media (max-width: 800px) {
+  .reg-steps, .reg-grid { grid-template-columns: 1fr; }
+}
 .album figcaption p { color: var(--muted); font-size: 14px; margin: 0; }
 @media (max-width: 900px) {
   .event-feature { grid-template-columns: 1fr; }
