@@ -606,6 +606,18 @@ label { font-weight: 500; color: #5c5e62; }
 .record-chapter { margin-top: 42px; }
 .record-head { max-width: 640px; margin-bottom: 16px; }
 .record-head h2 { margin: 6px 0 8px; }
+.event-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px 18px;
+  align-items: start;
+}
+.event-grid .shot img { aspect-ratio: 16 / 10; object-position: center 40%; }
+.event-grid .shot figcaption { padding-top: 12px; }
+.event-grid .shot h3 { font-size: 20px; }
+@media (max-width: 800px) {
+  .event-grid { grid-template-columns: 1fr; gap: 22px; }
+}
 
 .intake {
   display: grid;
