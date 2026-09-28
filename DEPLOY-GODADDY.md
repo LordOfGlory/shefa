@@ -27,4 +27,4 @@ If GoDaddy is forwarding the apex (`shefaventurez.com` → www), you can keep fo
 
 - https://www.shefaventurez.com loads the Shefa site
 - HTTPS is issued by Vercel / Let’s Encrypt
-- There are no bank, mobile-money or checkout pages — payment details go only by WhatsApp +256 763 533 786 or shefaventurez@outlook.com
+- There are no bank, mobile-money or checkout pages — payment details go only by WhatsApp +256 788 668 652 or shefaventurez@outlook.com
