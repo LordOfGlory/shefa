@@ -525,9 +525,13 @@ iframe[src*="tiiny"] { display: none !important; }
 
 /* 2026 polish */
 .site-header {
-  background: rgba(255,255,255,.96) !important;
-  backdrop-filter: blur(18px);
+  background: #f5f6f7 !important;
+  backdrop-filter: none;
   border-bottom: 1px solid var(--line) !important;
+}
+.site-header .logo,
+.site-header .logo img {
+  background: transparent !important;
 }
 .site-header .logo img {
   display: block !important;
