@@ -86,7 +86,14 @@ section { padding: 72px 0; }
 .section-head p { margin-top: 10px; color: var(--muted); }
 
 .card-grid, .blog-grid, .edu-grid, .q-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-.pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; align-items: stretch; }
+.pillar { display: flex; flex-direction: column; height: 100%; }
+.pillar h3 { color: var(--ink); min-height: 2.6em; }
+.pillar .go { margin-top: auto; padding-top: 22px; }
+.pillar .go a { font-weight: 500; }
+@media (max-width: 860px) {
+  .pillar h3 { min-height: 0; }
+}
 .values { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
 .split, .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .form-grid .full { grid-column: 1 / -1; }
