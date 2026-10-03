@@ -262,7 +262,7 @@ body.inner .site-header { background: rgba(255,255,255,.96); border-bottom: 1px 
 }
 .panel-img::after { content:""; position:absolute; inset:0; background: rgba(8,12,20,.55); }
 .panel-img .inner { position: relative; z-index: 1; width: min(720px, calc(100% - 40px)); }
-.panel-img h2 { color: #fff; }
+.panel-img h2 { color: #fff !important; }
 .panel-img h2, .panel-img p { text-shadow: 0 1px 16px rgba(0,0,0,.45); }
 
 /* hide common third-party host badges */
