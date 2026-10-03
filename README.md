@@ -4,7 +4,7 @@ Public site for technology, cybersecurity and academy training.
 
 Live domain: https://www.shefaventurez.com
 
-There is **no checkout**. Academy payment details are sent only on WhatsApp +256 788 668 652 or shefaventurez@outlook.com. Bank and mobile-money numbers are never published here.
+There is **no checkout**. Academy payment details are sent only on WhatsApp +256 763 533 786 or shefaventurez@outlook.com. Bank and mobile-money numbers are never published here.
 
 ## Hosting
 
@@ -15,4 +15,4 @@ There is **no checkout**. Academy payment details are sent only on WhatsApp +256
 ## Contact
 
 - Email: shefaventurez@outlook.com
-- WhatsApp: +256 788 668 652
+- WhatsApp: +256 763 533 786
