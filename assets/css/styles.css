@@ -262,7 +262,34 @@ body.inner .site-header { background: rgba(255,255,255,.96); border-bottom: 1px 
 }
 .panel-img::after { content:""; position:absolute; inset:0; background: rgba(8,12,20,.45); }
 .panel-img .inner { position: relative; z-index: 1; width: min(720px, calc(100% - 40px)); }
-.panel-img h2 { color: #fff; }
+.panel-photo { display: none; }
+@media (max-width: 800px) {
+  .panel-fit {
+    min-height: 0;
+    display: block;
+    padding: 0 0 8px;
+    background-image: none !important;
+    text-align: left;
+  }
+  .panel-fit::after { display: none; }
+  .panel-fit .panel-photo {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    object-position: center;
+  }
+  .panel-fit .inner {
+    position: relative;
+    width: min(1120px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: 20px 0 8px;
+  }
+  .panel-fit h2 { color: var(--ink); }
+  .panel-fit .eyebrow { color: var(--blue) !important; }
+  .panel-fit .muted { color: var(--muted) !important; }
+}
 
 /* hide common third-party host badges */
 a[href*="tiiny"], a[href*="tiiny.host"], [id*="tiiny"], [class*="tiiny"],
@@ -877,4 +904,29 @@ label { font-weight: 500; color: #5c5e62; }
   .wa-dock { right: max(14px, env(safe-area-inset-right)); bottom: max(14px, env(safe-area-inset-bottom)); }
   .wa-sheet { width: min(288px, calc(100vw - 28px)); }
   .float-wa { display: grid !important; }
+  .panel-img.panel-fit {
+    min-height: 0;
+    display: block;
+    padding: 0 0 12px;
+    background-image: none !important;
+    text-align: left;
+  }
+  .panel-img.panel-fit::after { display: none; }
+  .panel-img.panel-fit .panel-photo {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    object-position: center;
+  }
+  .panel-img.panel-fit .inner {
+    position: relative;
+    width: min(1120px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: 20px 0 4px;
+  }
+  .panel-img.panel-fit h2 { color: var(--ink); }
+  .panel-img.panel-fit .eyebrow { color: var(--blue) !important; }
+  .panel-img.panel-fit .muted { color: var(--muted) !important; }
 }
