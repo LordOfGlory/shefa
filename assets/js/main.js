@@ -439,6 +439,46 @@ setInterval(() => {
 }, 800);
 
 (function () {
+  const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  const parts = new Intl.DateTimeFormat("en-GB", {
+    timeZone: "Africa/Kampala",
+    year: "numeric",
+    month: "numeric",
+    day: "numeric"
+  }).formatToParts(new Date());
+  const num = function (type) {
+    return Number(parts.find(function (p) { return p.type === type; }).value);
+  };
+  let year = num("year");
+  let month = num("month");
+  if (num("day") > 1) {
+    month += 1;
+    if (month > 12) { month = 1; year += 1; }
+  }
+  const name = months[month - 1];
+  const full = "1 " + name + " " + year;
+  const short = "1 " + name;
+  document.querySelectorAll("[data-intake]").forEach(function (el) {
+    const kind = el.getAttribute("data-intake");
+    if (kind === "full") el.textContent = full;
+    else if (kind === "home-h") el.textContent = "Next classes begin " + short + ".";
+    else if (kind === "one") el.textContent = short + ". One school.";
+    else if (kind === "opens") el.textContent = "The next intake opens " + full + ". Choose one school and register below.";
+    else if (kind === "see") el.textContent = "See the " + name + " intake";
+  });
+  document.querySelectorAll("[data-enroll]").forEach(function (el) {
+    const school = el.getAttribute("data-enroll");
+    const fee = el.getAttribute("data-fee") || "";
+    const line = "I want to enroll in the " + school + " (" + fee + ", starting " + short + "). Please send payment details";
+    if ((el.getAttribute("href") || "").indexOf("mailto:") === 0) {
+      el.href = "mailto:shefaventurez@outlook.com?subject=" + encodeURIComponent(school + " enrollment") + "&body=" + encodeURIComponent("Hello Shefa Venturez,\n\n" + line + ".\n");
+    } else {
+      el.href = "https://wa.me/256763533786?text=" + encodeURIComponent("Hello Shefa Venturez — " + line + " on this WhatsApp.");
+    }
+  });
+})();
+
+(function () {
   const key = (location.hash || "").replace("#", "");
   if (!key) return;
   const btn = document.querySelector('[data-pick="'+key+'"]');
