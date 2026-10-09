@@ -1,4 +1,4 @@
-/* Shefa Venturez interactions */
+/* Shefa Ventures interactions */
 (function () {
   if (location.hostname === "shefaventurez.com") {
     location.replace("https://www.shefaventurez.com" + location.pathname + location.search + location.hash);
@@ -42,10 +42,10 @@
 
   const waNumber = (document.documentElement.dataset.wa || "256763533786").replace(/[^\d]/g, "").slice(0, 15);
   const waMenu = [
-    ["IT services", "Hello Shefa Venturez — I need help with IT (web, software, cloud or support). Please reply with the next step."],
-    ["Cybersecurity", "Hello Shefa Venturez — I would like to discuss authorized cybersecurity work. Please reply with the next step."],
-    ["Academy", "Hello Shefa Venturez — I want to know about the academy (IT, Cyber, or Forex). Please reply with the next step."],
-    ["General question", "Hello Shefa Venturez — I have a question. Please reply with the next step."],
+    ["IT services", "Hello Shefa Ventures — I need help with IT (web, software, cloud or support). Please reply with the next step."],
+    ["Cybersecurity", "Hello Shefa Ventures — I would like to discuss authorized cybersecurity work. Please reply with the next step."],
+    ["Academy", "Hello Shefa Ventures — I want to know about the academy (IT, Cyber, or Forex). Please reply with the next step."],
+    ["General question", "Hello Shefa Ventures — I have a question. Please reply with the next step."],
   ];
   function waLink(text) {
     return "https://wa.me/" + waNumber + "?text=" + encodeURIComponent(text);
@@ -363,7 +363,7 @@
       if (k === "website_hp" || k === "_honey") return;
       payload[k] = sanitize(v);
     });
-    payload._subject = payload._subject || "Shefa Venturez website";
+    payload._subject = payload._subject || "Shefa Ventures website";
     payload._template = "table";
     payload._captcha = "false";
     if (payload.email) payload._replyto = payload.email;
@@ -471,9 +471,9 @@ setInterval(() => {
     const fee = el.getAttribute("data-fee") || "";
     const line = "I want to enroll in the " + school + " (" + fee + ", starting " + short + "). Please send payment details";
     if ((el.getAttribute("href") || "").indexOf("mailto:") === 0) {
-      el.href = "mailto:shefaventurez@outlook.com?subject=" + encodeURIComponent(school + " enrollment") + "&body=" + encodeURIComponent("Hello Shefa Venturez,\n\n" + line + ".\n");
+      el.href = "mailto:shefaventurez@outlook.com?subject=" + encodeURIComponent(school + " enrollment") + "&body=" + encodeURIComponent("Hello Shefa Ventures,\n\n" + line + ".\n");
     } else {
-      el.href = "https://wa.me/256763533786?text=" + encodeURIComponent("Hello Shefa Venturez — " + line + " on this WhatsApp.");
+      el.href = "https://wa.me/256763533786?text=" + encodeURIComponent("Hello Shefa Ventures — " + line + " on this WhatsApp.");
     }
   });
 })();

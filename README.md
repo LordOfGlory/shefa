@@ -1,4 +1,4 @@
-# Shefa Venturez website
+# Shefa Ventures website
 
 Public site for technology, cybersecurity and academy training.
 
