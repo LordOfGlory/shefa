@@ -281,9 +281,9 @@
 
   const enroll = document.getElementById("enroll-form");
   const FEES = {
-    "IT Academy": "$349 \u00b7 12 weeks \u00b7 \u2248 UGX 1,300,000",
-    "Cybersecurity Academy": "$429 \u00b7 12 weeks \u00b7 \u2248 UGX 1,600,000",
-    "Financial Markets Academy": "$299 \u00b7 8 weeks \u00b7 \u2248 UGX 1,100,000"
+    "IT Academy": "$349 · 12 weeks · ≈ UGX 1,300,000",
+    "Cybersecurity Academy": "$429 · 12 weeks · ≈ UGX 1,600,000",
+    "Financial Markets Academy": "$299 · 8 weeks · ≈ UGX 1,100,000"
   };
   if (enroll) {
     const q = new URLSearchParams(location.search).get("program");
@@ -348,7 +348,7 @@
       const original = btn ? btn.textContent : "";
       if (btn) {
         btn.disabled = true;
-        btn.textContent = "Preparing\u2026";
+        btn.textContent = "Preparing…";
       }
       const payload = {};
       new FormData(pdfForm).forEach((v, k) => {
@@ -387,7 +387,7 @@
   async function sendToOutlook(form) {
     const btn = form.querySelector('[type="submit"]');
     const original = btn ? btn.textContent : "";
-    if (btn) { btn.disabled = true; btn.textContent = "Sending\u2026"; }
+    if (btn) { btn.disabled = true; btn.textContent = "Sending…"; }
     const payload = {};
     new FormData(form).forEach((v, k) => {
       if (k === "website_hp" || k === "_honey") return;
@@ -503,7 +503,7 @@ setInterval(() => {
     if ((el.getAttribute("href") || "").indexOf("mailto:") === 0) {
       el.href = "mailto:shefaventurez@outlook.com?subject=" + encodeURIComponent(school + " enrollment") + "&body=" + encodeURIComponent("Hello Shefa Ventures,\n\n" + line + ".\n");
     } else {
-      el.href = "https://wa.me/256763533786?text=" + encodeURIComponent("Hello Shefa Ventures \u2014 " + line + " on this WhatsApp.");
+      el.href = "https://wa.me/256763533786?text=" + encodeURIComponent("Hello Shefa Ventures — " + line + " on this WhatsApp.");
     }
   });
 })();
