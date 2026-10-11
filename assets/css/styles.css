@@ -883,3 +883,20 @@ label { font-weight: 500; color: #5c5e62; }
   .wa-sheet { width: min(288px, calc(100vw - 28px)); }
   .float-wa { display: grid !important; }
 }
+
+.front-note { padding: 0; background: #171a20; color: #fff; }
+.front-note .container { display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 52px; }
+.front-note p { margin: 0; font-size: 14px; }
+.front-note a { color: #fff; font-weight: 500; white-space: nowrap; }
+.need-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.need-grid a { display: flex; flex-direction: column; gap: 6px; min-height: 128px; padding: 20px; background: #fff; border: 1px solid var(--line); border-radius: 8px; }
+.need-grid a:hover { border-color: var(--ink); }
+.need-grid span { color: var(--muted); font-size: 14px; line-height: 1.45; }
+.proof-wrap { padding: 28px 0; }
+.proof { grid-template-columns: repeat(4, 1fr); }
+.proof strong { font-size: 28px; letter-spacing: -0.03em; }
+.proof span { display: block; margin-top: 6px; color: var(--muted); font-size: 14px; line-height: 1.4; }
+@media (max-width: 800px) {
+  .need-grid, .proof { grid-template-columns: 1fr 1fr; }
+  .front-note .container { flex-direction: column; align-items: flex-start; padding-top: 14px; padding-bottom: 14px; }
+}
