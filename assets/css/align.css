@@ -1,0 +1,4 @@
+.mega-academy{grid-template-columns:max-content minmax(240px,1fr);min-width:640px}
+.mega-academy .mega-kicker{white-space:nowrap}
+.mega-academy a:has(em){display:flex;align-items:baseline;justify-content:space-between;gap:28px;white-space:nowrap}
+.mega-academy a em{float:none;flex:none;margin-left:28px}
